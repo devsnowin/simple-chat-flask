@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="chat-form_wrapper">
+<form class="chat-form" method="POST">
+	<h1>Chat form</h1>
+	<div class="chat-form_group">
+		<label for="name">Name</label>
+		<input type="text" name="name" id="name">
+	</div>
+	<div class="chat-form_group">
+		<label for="roomId">Room Id</label>
+		<input type="text" name="roomId" id="roomId">
+	</div>
+	<div class="chat-form_group chat-form_button-group">
+		<button type="submit" name="join" value="join" class="chat-form_btn-join">Join a Room</button>
+		<button type="submit" name="create" value="create" class="chat-form_btn-create">Create a Room</button>
+	</div>
+	{% if error %}
+		<ul>
+			<li>{{error}}</li>
+		</ul>
+	{% endif %}
+</form>
+</div>
+
+{% endblock %}

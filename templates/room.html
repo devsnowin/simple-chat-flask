@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/room.css')}}">
+
+{% endblock %}
+
+{% block content %}
+<div class="chat-box_wrapper">
+    <h>Chat room: {{ room }}</h>
+    <span id="username" hidden>{{user}}</span>
+    <div class="chat-box">
+        <div class="chat-messages" id="chat-messages">
+        </div>
+    </div>
+    <form class="message-box" id="chat-form">
+        <input type="text" placeholder="Enter your message" name="message">
+        <button>Send</button>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/room.js')}}"></script>
+
+{% if messages %}
+    {% for msg in messages %}
+        <script type="text/javascript" defer>
+            createMessage(`{{msg.name|safe}}`, `{{msg.message|safe}}`)
+        </script>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
