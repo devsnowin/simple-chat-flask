@@ -23,12 +23,12 @@ To run this project locally, follow these steps:
 2. Install dependencies:
 
    ```bash
-   	cd flask-chat-app
-	pip install -r requirements.txt
+   cd flask-chat-app
+   pip install -r requirements.txt
    ```
 
 3. Run the application:
 
    ```bash
-   	python app.py
+   python app.py
    ```
